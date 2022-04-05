@@ -1,0 +1,12 @@
+name: 'Install Poetry'
+description: 'Composite action to install Poetry and setup caching.'
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/cache@v3
+      with:
+        path: ~/.cache/pypoetry
+        key: ${{ runner.os }}
+    - run: pip install poetry
+      shell: bash
